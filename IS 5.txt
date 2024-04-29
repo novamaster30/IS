@@ -17,9 +17,14 @@ public class Main {
             e++;
         }
         System.out.println("e = " + e);
-
-        int k = 2;
-        int d = (k * phi + 1) / e;
+        
+        int d=0;
+        for(int i=0;i<n;i++){
+            if((i*e)%phi==1){
+                d=i;
+                break;
+            }
+        }
         System.out.println("d = " + d);
         System.out.println("Public key: (" + e + ", " + n + ")");
         System.out.println("Private key: (" + d + ", " + n + ")");
@@ -44,6 +49,7 @@ public class Main {
     }
 
 }
+
 
 
 
