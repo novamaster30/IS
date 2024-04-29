@@ -1,3 +1,29 @@
+//java
+public class Main{
+    public static void main(String[] args) {
+        
+        String str="Hello World";
+        int length=str.length();
+
+        for(int i=0;i<length;i++){
+            System.out.print((char) (str.charAt(i) & 127));
+        }
+        System.out.println();
+
+        for(int i=0;i<length;i++){
+            System.out.print((char) (str.charAt(i) ^ 127));
+        }
+        System.out.println();
+
+        for(int i=0;i<length;i++){
+            System.out.print((char) (str.charAt(i) | 127));
+        }
+        System.out.println();
+    }
+}
+
+
+//c
 #include <stdio.h>
 #include <string.h>
 
@@ -26,12 +52,10 @@ int main(void) {
 }
 
 
-
+#python
 a=input(str("Enter a String: "))
 b=127
 c=b and a
 d=[chr(ord(x)^ord(y)) for x,y in zip(a,str(b))]
 print(c)
 print(d)
-
-
