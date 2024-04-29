@@ -27,10 +27,10 @@ public class Main {
         int msg = 11;
         System.out.println("Original message: " + msg);
 
-        int C = modPow(msg, e, n);
+        int C =(int)(Math.pow(msg, e)%n);
         System.out.println("Encrypted message: " + C);
 
-        int M = modPow(C, d, n);
+        int M =(int)(Math.pow(C, d)%n);
         System.out.println("Decrypted message: " + M);
     }
 
@@ -43,19 +43,10 @@ public class Main {
         return a;
     }
 
-    // Utility method to perform modular exponentiation
-    private static int modPow(int base, int exp, int mod) {
-        int result = 1;
-        while (exp > 0) {
-            if (exp % 2 == 1) { // If exp is odd, multiply the base with result
-                result = (result * base) % mod;
-            }
-            base = (base * base) % mod; // Square the base
-            exp = exp / 2; // Divide the exponent by 2
-        }
-        return result;
-    }
 }
+
+
+
 
 
 
