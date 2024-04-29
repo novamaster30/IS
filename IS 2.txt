@@ -1,3 +1,56 @@
+//java
+import java.util.Scanner;
+
+public class Main{
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("\t\tRAIL FENCE TECHNIQUE");
+        System.out.println("\nEnter the input string:");
+        String input = scanner.nextLine();
+
+        int length = input.length();
+        char[] inputChars = input.toCharArray();
+        char[] cipherChars = new char[length];
+
+        // Ciphering
+        int j = 0;
+        for (int i = 0; i < length; i++) {
+            if (i % 2 == 0) {
+                cipherChars[j++] = inputChars[i];
+            }
+        }
+        for (int i = 0; i < length; i++) {
+            if (i % 2 == 1) {
+                cipherChars[j++] = inputChars[i];
+            }
+        }
+
+        String cipherText = new String(cipherChars);
+        System.out.println("\nCiphertext after applying rail fence:");
+        System.out.println(cipherText);
+
+        // Deciphering
+        char[] decipherChars = new char[length];
+        int midPoint = (length + 1) / 2;
+        for (int i = 0, k = 0; i < midPoint; i++, k += 2) {
+            decipherChars[k] = cipherChars[i];
+        }
+        for (int i = midPoint, k = 1; i < length; i++, k += 2) {
+            decipherChars[k] = cipherChars[i];
+        }
+
+        String decipherText = new String(decipherChars);
+        System.out.println("\nText after decryption:");
+        System.out.println(decipherText);
+
+        scanner.close();
+    }
+}
+
+
+
+
+//c
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -50,7 +103,7 @@ int main(void) {
 
 
 
-
+#python
 a = input("Enter the input string: ")
 l = len(a)
 c = ""
